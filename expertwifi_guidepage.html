@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ExpertWiFi Selection Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary-color: #006ce1;
+      --bg-color: #f5f7fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-color);
+    }
+
+    header {
+      background-color: #fff;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding-left: 24px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    .main {
+      display: flex;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      background: white;
+      border-radius: 20px;
+      padding: 48px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: var(--primary-color);
+      font-weight: 700;
+      font-size: 26px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding-bottom: 10px;
+    }
+
+    .option {
+      flex: 1 1 18%;
+      max-width: 220px;
+      min-width: 160px;
+      height: auto;
+      background-color: #fff;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      padding: 16px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .option:hover {
+      outline: 2px solid #2684FF;
+      outline-offset: -2px;
+      box-shadow: 0 6px 20px rgba(38, 132, 255, 0.3);
+    }
+
+    .option img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+
+    .option label {
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      color: #006ce1;
+    }
+
+    @media (max-width: 800px) {
+      .options {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .option {
+        flex: 1 1 45%;
+        max-width: 45%;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .option {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+    }
+
+
+    .option {
+      background-color: #fff;
+      border-radius: 18px;
+      width: 220px;
+      /* height: 260px; */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .option:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .option img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .option label {
+      padding: 16px 12px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-color);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 24px;
+      }
+
+      .option {
+        width: 180px;
+        height: 220px;
+      }
+
+      .option img {
+        height: 140px;
+      }
+    }
+
+    .icon-size-logo-business {
+      width: 200px;
+      height: 48px;
+    }
+
+    .icon-logo-business {
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTk5IiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMTk5IDQ4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMzMuMDk2IDE3SDIxLjE0QzE4LjM2OCAxNyAxNy4xMzYgMTguNzM2IDE2Ljg1NiAyMC4zODhWMTdIMTAuMjJDOS4yOTYwOCAxNyA4Ljg0ODA4IDE3LjI4IDguNDAwMDggMTcuOTI0TDYuNTgwMDggMjAuNTg0SDMzLjA5NlYxN1oiIGZpbGw9IiMyRDI5MjYiLz4KPHBhdGggZD0iTTAgMzEuMDAwMkg0Ljc2TDEwLjcyNCAyMS4zNjgyTDYuNDY4IDIwLjk0ODJMMCAzMS4wMDAyWiIgZmlsbD0iIzJEMjkyNiIvPgo8cGF0aCBkPSJNMzcuNzE2OSAxN0gzMy43OTY5VjIwLjU4NEgzNy43MTY5VjE3WiIgZmlsbD0iIzJEMjkyNiIvPgo8cGF0aCBkPSJNNjIuNjA4NCAyMi42MDAxTDUwLjM0NDQgMjEuODcyMUM1MC4zNDQ0IDIzLjc0ODEgNTEuNTc2NCAyNS4wMDgxIDUzLjY3NjQgMjUuMTc2MUw2Mi40MTI0IDI1Ljg0ODFDNjMuMDg0NCAyNS45MDQxIDYzLjUwNDQgMjYuMDcyMSA2My41MDQ0IDI2LjYzMjFDNjMuNTA0NCAyNy4xNjQxIDYzLjAyODQgMjcuMzYwMSA2Mi4wNDg0IDI3LjM2MDFINTAuMTQ4NFYzMS4wMDAxSDYyLjMwMDRDNjYuMTM2NCAzMS4wMDAxIDY3LjgxNjQgMjkuNjU2MSA2Ny44MTY0IDI2LjYwNDFDNjcuODE2NCAyMy44NjAxIDY2LjMwNDQgMjIuODI0MSA2Mi42MDg0IDIyLjYwMDFaIiBmaWxsPSIjMkQyOTI2Ii8+CjxwYXRoIGQ9Ik01MC4xNzQ5IDIxLjg3MTZMNDYuMzEwOSAyMS42NDc2VjI1Ljc2MzZDNDYuMzEwOSAyNy4wNTE2IDQ1LjY2NjkgMjcuNDQzNiA0My40MjY5IDI3LjQ0MzZINDAuMzQ2OUMzOC40OTg5IDI3LjQ0MzYgMzcuNzE0OSAyNi45MTE2IDM3LjcxNDkgMjUuNzYzNlYyMS4yNTU2TDMzLjc5NDkgMjAuOTc1NlYyNi4wOTk2SDMzLjcxMDlDMzMuNDg2OSAyNC42MTU2IDMyLjkyNjkgMjIuODc5NiAyOS4yMDI5IDIyLjYyNzZMMTYuOTM4OSAyMS44MTU2QzE2LjkzODkgMjMuNjkxNiAxOC4yODI5IDI0LjgxMTYgMjAuMzgyOSAyNS4wMzU2TDI4LjkyMjkgMjUuOTAzNkMyOS41OTQ5IDI1Ljk1OTYgMzAuMDk4OSAyNi4xNTU2IDMwLjA5ODkgMjYuNzE1NkMzMC4wOTg5IDI3LjMzMTYgMjkuNTk0OSAyNy4zODc2IDI4LjgxMDkgMjcuMzg3NkgxNi43OTg5VjIxLjc4NzZMMTIuODc4OSAyMS41MzU2VjMwLjk5OTZIMjguODM4OUMzMi4zOTQ5IDMwLjk5OTYgMzMuNTQyOSAyOS4xNTE2IDMzLjcxMDkgMjcuNjExNkgzMy43OTQ5QzM0LjI0MjkgMzAuMDQ3NiAzNi4zNzA5IDMwLjk5OTYgMzkuOTgyOSAzMC45OTk2SDQzLjk1ODlDNDguMTg2OSAzMC45OTk2IDUwLjE3NDkgMjkuNzExNiA1MC4xNzQ5IDI2LjY4NzZWMjEuODcxNloiIGZpbGw9IiMyRDI5MjYiLz4KPHBhdGggZD0iTTY3LjUzNjUgMjAuNTg0VjE3SDU0LjM3NjVDNTEuNjMyNSAxNyA1MC40MDA1IDE4LjcwOCA1MC4xNzY1IDIwLjMzMkM1MC4xNzY1IDIwLjM2IDUwLjE3NjUgMjAuMzYgNTAuMTc2NSAyMC4zODhWMTdINDYuMzEyNVYyMC41ODRINTAuMTc2NUg2Ny41MzY1WiIgZmlsbD0iIzJEMjkyNiIvPgo8cGF0aCBkPSJNNzcuMTg4NCAxNi45OTg5TDc1LjgxNjQgMTcuMDAxNUw3NS44NDI3IDMxLjAwMTVMNzcuMjE0NyAzMC45OTg5TDc3LjE4ODQgMTYuOTk4OVoiIGZpbGw9IiMyRDI5MjYiLz4KPHBhdGggZD0iTTg1LjI0MjcgMTcuNDA1NUM4Ni4wNTQ3IDE3LjIzNzUgODcuNjc4NyAxNy4xMjU1IDg5LjIxODcgMTcuMTI1NUM5MS4wOTQ3IDE3LjEyNTUgOTIuMjQyNyAxNy4yOTM1IDkzLjIyMjcgMTcuODgxNUM5NC4xNzQ3IDE4LjM4NTUgOTQuODQ2OCAxOS4zMDk1IDk0Ljg0NjggMjAuNTQxNUM5NC44NDY4IDIxLjc0NTUgOTQuMTQ2OCAyMi44OTM1IDkyLjYwNjggMjMuNDUzNVYyMy40ODE1Qzk0LjE0NjggMjMuOTAxNSA5NS4yOTQ4IDI1LjA3NzUgOTUuMjk0OCAyNi44NDE1Qzk1LjI5NDggMjguMDczNSA5NC43MzQ4IDI5LjAyNTUgOTMuODk0OCAyOS43MjU1QzkyLjkxNDggMzAuNTA5NSA5MS4yNjI4IDMwLjk1NzUgODguNTQ2OCAzMC45NTc1Qzg3LjAzNDggMzAuOTU3NSA4NS45MTQ4IDMwLjg0NTUgODUuMjE0OCAzMC43NjE1VjE3LjQwNTVIODUuMjQyN1pNODguMjk0OCAyMi41ODU1SDg5LjMwMjdDOTAuOTI2NyAyMi41ODU1IDkxLjc5NDggMjEuOTEzNSA5MS43OTQ4IDIwLjkwNTVDOTEuNzk0OCAxOS44Njk1IDkxLjAxMDcgMTkuMzM3NSA4OS42MTA3IDE5LjMzNzVDODguOTM4NyAxOS4zMzc1IDg4LjU3NDggMTkuMzY1NSA4OC4yOTQ4IDE5LjQyMTVWMjIuNTg1NVpNODguMjk0OCAyOC42MzM1Qzg4LjYwMjggMjguNjYxNSA4OC45NjY3IDI4LjY2MTUgODkuNDcwNyAyOC42NjE1QzkwLjg3MDcgMjguNjYxNSA5Mi4xMDI3IDI4LjEyOTUgOTIuMTAyNyAyNi43MDE1QzkyLjEwMjcgMjUuMzI5NSA5MC44NzA3IDI0Ljc5NzUgODkuMzMwNyAyNC43OTc1SDg4LjI5NDhWMjguNjMzNVoiIGZpbGw9IiMyRDI5MjYiLz4KPHBhdGggZD0iTTEwMC4xMTEgMTcuMjEwNFYyNS4wMjI0QzEwMC4xMTEgMjcuMzc0NCAxMDEuMDA3IDI4LjU1MDQgMTAyLjU3NSAyOC41NTA0QzEwNC4xOTkgMjguNTUwNCAxMDUuMDY3IDI3LjQzMDQgMTA1LjA2NyAyNS4wMjI0VjE3LjIxMDRIMTA4LjExOVYyNC44MjY0QzEwOC4xMTkgMjkuMDI2NCAxMDUuOTkxIDMxLjAxNDQgMTAyLjQ2MyAzMS4wMTQ0Qzk5LjA0NzMgMzEuMDE0NCA5Ny4wMzEyIDI5LjExMDQgOTcuMDMxMiAyNC43NzA0VjE3LjIxMDRIMTAwLjExMVoiIGZpbGw9IiMyRDI5MjYiLz4KPHBhdGggZD0iTTExMC40MTUgMjcuNjI1OEMxMTEuMjU1IDI4LjA0NTggMTEyLjUxNSAyOC40NjU4IDExMy44MzEgMjguNDY1OEMxMTUuMjMxIDI4LjQ2NTggMTE1Ljk4NyAyNy44Nzc4IDExNS45ODcgMjYuOTgxOEMxMTUuOTg3IDI2LjE0MTggMTE1LjM0MyAyNS42Mzc4IDExMy43MTkgMjUuMDc3OEMxMTEuNDUxIDI0LjI5MzggMTA5Ljk5NSAyMy4wMzM4IDEwOS45OTUgMjEuMDczOEMxMDkuOTk1IDE4Ljc0OTggMTExLjkyNyAxNi45ODU4IDExNS4xNDcgMTYuOTg1OEMxMTYuNjg3IDE2Ljk4NTggMTE3LjgwNyAxNy4zMjE4IDExOC42MTkgMTcuNjU3OEwxMTcuOTQ3IDIwLjE0OThDMTE3LjQxNSAxOS44OTc4IDExNi40MzUgMTkuNTA1OCAxMTUuMDkxIDE5LjUwNThDMTEzLjc0NyAxOS41MDU4IDExMy4xMDMgMjAuMTIxOCAxMTMuMTAzIDIwLjgyMThDMTEzLjEwMyAyMS42ODk4IDExMy44NTkgMjIuMDgxOCAxMTUuNjIzIDIyLjcyNThDMTE4LjAzMSAyMy42MjE4IDExOS4xNTEgMjQuODUzOCAxMTkuMTUxIDI2Ljc4NThDMTE5LjE1MSAyOS4wNTM4IDExNy4zODcgMzAuOTg1OCAxMTMuNjYzIDMwLjk4NThDMTEyLjEyMyAzMC45ODU4IDExMC41ODMgMzAuNTkzOCAxMDkuNzk5IDMwLjE0NThMMTEwLjQxNSAyNy42MjU4WiIgZmlsbD0iIzJEMjkyNiIvPgo8cGF0aCBkPSJNMTI0LjAyMSAxNy4yMTA0VjMwLjc5MDVIMTIwLjk0MVYxNy4yMTA0SDEyNC4wMjFaIiBmaWxsPSIjMkQyOTI2Ii8+CjxwYXRoIGQ9Ik0xMjYuNDg2IDMwLjc5MDRWMTcuMjEwNEgxMzAuMDdMMTMyLjg5OCAyMi4xOTQ0QzEzMy43MSAyMy42MjI0IDEzNC41MjIgMjUuMzMwNCAxMzUuMTEgMjYuODQyNEgxMzUuMTY2QzEzNC45NyAyNS4wNTA0IDEzNC45MTQgMjMuMjAyNCAxMzQuOTE0IDIxLjE4NjRWMTcuMjEwNEgxMzcuNzQyVjMwLjc5MDRIMTM0LjUyMkwxMzEuNjEgMjUuNTU0NEMxMzAuNzk4IDI0LjA5ODQgMTI5LjkzIDIyLjM2MjQgMTI5LjI1OCAyMC43NjY0TDEyOS4yMDIgMjAuNzk0NEMxMjkuMjg2IDIyLjU4NjQgMTI5LjMxNCAyNC40OTA0IDEyOS4zMTQgMjYuNzMwNFYzMC44MTg0SDEyNi40ODZWMzAuNzkwNFoiIGZpbGw9IiMyRDI5MjYiLz4KPHBhdGggZD0iTTE0OC4zIDI1LjA1MDVIMTQzLjI4OFYyOC4yNzA1SDE0OC44NlYzMC43OTA1SDE0MC4xOFYxNy4yMTA0SDE0OC41OFYxOS43MzA1SDE0My4yODhWMjIuNTU4NUgxNDguM1YyNS4wNTA1WiIgZmlsbD0iIzJEMjkyNiIvPgo8cGF0aCBkPSJNMTUwLjc5MiAyNy42MjU4QzE1MS42MzIgMjguMDQ1OCAxNTIuODkyIDI4LjQ2NTggMTU0LjIwOCAyOC40NjU4QzE1NS42MDggMjguNDY1OCAxNTYuMzY0IDI3Ljg3NzggMTU2LjM2NCAyNi45ODE4QzE1Ni4zNjQgMjYuMTQxOCAxNTUuNzIgMjUuNjM3OCAxNTQuMDk2IDI1LjA3NzhDMTUxLjgyOCAyNC4yOTM4IDE1MC4zNzIgMjMuMDMzOCAxNTAuMzcyIDIxLjA3MzhDMTUwLjM3MiAxOC43NDk4IDE1Mi4zMDQgMTYuOTg1OCAxNTUuNTI0IDE2Ljk4NThDMTU3LjA2NCAxNi45ODU4IDE1OC4xODQgMTcuMzIxOCAxNTguOTk2IDE3LjY1NzhMMTU4LjMyNCAyMC4xNDk4QzE1Ny43OTIgMTkuODk3OCAxNTYuODEyIDE5LjUwNTggMTU1LjQ2OCAxOS41MDU4QzE1NC4xMjQgMTkuNTA1OCAxNTMuNDggMjAuMTIxOCAxNTMuNDggMjAuODIxOEMxNTMuNDggMjEuNjg5OCAxNTQuMjM2IDIyLjA4MTggMTU2IDIyLjcyNThDMTU4LjQwOCAyMy42MjE4IDE1OS41MjggMjQuODUzOCAxNTkuNTI4IDI2Ljc4NThDMTU5LjUyOCAyOS4wNTM4IDE1Ny43NjQgMzAuOTg1OCAxNTQuMDQgMzAuOTg1OEMxNTIuNSAzMC45ODU4IDE1MC45NiAzMC41OTM4IDE1MC4xNzYgMzAuMTQ1OEwxNTAuNzkyIDI3LjYyNThaIiBmaWxsPSIjMkQyOTI2Ii8+CjxwYXRoIGQ9Ik0xNjEuMTI0IDI3LjYyNThDMTYxLjk2NCAyOC4wNDU4IDE2My4yMjQgMjguNDY1OCAxNjQuNTQgMjguNDY1OEMxNjUuOTQgMjguNDY1OCAxNjYuNjk2IDI3Ljg3NzggMTY2LjY5NiAyNi45ODE4QzE2Ni42OTYgMjYuMTQxOCAxNjYuMDUyIDI1LjYzNzggMTY0LjQyOCAyNS4wNzc4QzE2Mi4xNiAyNC4yOTM4IDE2MC43MDQgMjMuMDMzOCAxNjAuNzA0IDIxLjA3MzhDMTYwLjcwNCAxOC43NDk4IDE2Mi42MzYgMTYuOTg1OCAxNjUuODU2IDE2Ljk4NThDMTY3LjM5NiAxNi45ODU4IDE2OC41MTYgMTcuMzIxOCAxNjkuMzI4IDE3LjY1NzhMMTY4LjY1NiAyMC4xNDk4QzE2OC4xMjQgMTkuODk3OCAxNjcuMTQ0IDE5LjUwNTggMTY1LjggMTkuNTA1OEMxNjQuNDU2IDE5LjUwNTggMTYzLjgxMiAyMC4xMjE4IDE2My44MTIgMjAuODIxOEMxNjMuODEyIDIxLjY4OTggMTY0LjU2OCAyMi4wODE4IDE2Ni4zMzIgMjIuNzI1OEMxNjguNzQgMjMuNjIxOCAxNjkuODYgMjQuODUzOCAxNjkuODYgMjYuNzg1OEMxNjkuODYgMjkuMDUzOCAxNjguMDk2IDMwLjk4NTggMTY0LjM3MiAzMC45ODU4QzE2Mi44MzIgMzAuOTg1OCAxNjEuMjkyIDMwLjU5MzggMTYwLjUwOCAzMC4xNDU4TDE2MS4xMjQgMjcuNjI1OFoiIGZpbGw9IiMyRDI5MjYiLz4KPHBhdGggZD0iTTE5MC4xMjMgMzhIMTgzLjk5MUgxNzcuODU5TDE4Ni42NzkgMjRMMTc3Ljg1OSAxMEgxODMuOTkxSDE5MC4xMjNMMTk4Ljk0MyAyNEwxOTAuMTIzIDM4WiIgZmlsbD0iIzE5ODRENiIvPgo8cGF0aCBkPSJNMTg2LjY4IDI0LjAwMDJIMTk4Ljk0NEwxOTIuODEyIDE0LjI4NDJMMTg2LjY4IDI0LjAwMDJaIiBmaWxsPSIjMTY3MkJEIi8+CjxwYXRoIGQ9Ik0xOTIuODEyIDMzLjcxNkwxOTguOTQ0IDI0SDE4Ni42OEwxOTIuODEyIDMzLjcxNloiIGZpbGw9IiMxMjU2OEMiLz4KPC9zdmc+Cg==");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: contain;
+      background-color: transparent;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .prev-button button {
+      background-color: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .prev-button button:hover {
+      background-color: var(--primary-color);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 108, 225, 0.3);
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #666;
+      text-align: center;
+      margin-top: -40px;
+      margin-bottom: 32px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="icon-size-logo-business icon-logo-business" role="icon"></div>
+  </header>
+  <div class="main">
+    <div class="container">
+
+      <div class="question" id="question1" style="display:block;">
+        <h2>Choose your scenario</h2>
+        <p class="subtitle">Select the specific situation or context that best applies to your needs.
+        </p>
+        <div class="options">
+          <div class="option" onclick="showOnlyQuestion('question2')">
+            <img src="https://images.pexels.com/photos/2467287/pexels-photo-2467287.jpeg" alt="Cafe">
+            <label>Café</label>
+          </div>
+          <div class="option" onclick="showOnlyQuestion('question2')">
+            <img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg" alt="B&B">
+            <label>B&B</label>
+          </div>
+          <div class="option" onclick="showOnlyQuestion('question2')">
+            <img src="https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg" alt="Restaurant">
+            <label>Restaurant</label>
+          </div>
+          <div class="option" onclick="showOnlyQuestion('question2')">
+            <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg" alt="Office">
+            <label>Office</label>
+          </div>
+          <div class="option" onclick="showOnlyQuestion('question2')">
+            <img src="https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg" alt="Others">
+            <label>Others</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question" id="question2" style="display:none;">
+        <h2>What is the size of you space need to cover?</h2>
+        <p class="subtitle">Provide the dimensions or area of the space you need to ensure is fully covered.
+        </p>
+        <div class="options">
+          <div class="option" onclick="showOnlyQuestion('question3')">
+            <img src="https://images.pexels.com/photos/271743/pexels-photo-271743.jpeg" alt="1-2500 sq ft.">
+            <label>1-2500 sq ft.</label>
+          </div>
+          <div class="option" onclick="showOnlyQuestion('question3')">
+            <img src="https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg" alt="500-5000 sq ft.">
+            <label>2500-5000 sq ft.</label>
+          </div>
+        </div>
+        <div class="prev-button" style="text-align:center; margin-top: 20px;">
+          <button onclick="prevQuestion('question2', 'question1')">← Previous</button>
+        </div>
+      </div>
+
+
+      <div class="question" id="question3" style="display:none;">
+        <h2>Do you need PoE support?</h2>
+        <p class="subtitle">Do you require Power over Ethernet (PoE) functionality to power your devices through the
+          network cable?
+        </p>
+        <div class="options">
+          <div class="option" onclick="showOnlyQuestion('question4')">
+            <img
+              src="https://images.pexels.com/photos/21562939/pexels-photo-21562939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="YES">
+            <label>YES</label>
+          </div>
+          <div class="option" onclick="showOnlyQuestion('question4')">
+            <img
+              src="https://images.pexels.com/photos/21562942/pexels-photo-21562942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="NO">
+            <label>NO</label>
+          </div>
+        </div>
+        <div class="prev-button" style="text-align:center; margin-top: 20px;">
+          <button onclick="prevQuestion('question3', 'question2')">← Previous</button>
+        </div>
+      </div>
+
+
+      <div class="question" id="question4" style="display:none;">
+        <h2>How many wireless devices are in your space?</h2>
+        <p class="subtitle">Indicate the number of wireless devices that will be connected within your space.
+        </p>
+        <div class="options">
+          <div class="option" onclick="showOnlyQuestion('question5')">
+            <label>Up to 50 devices</label>
+          </div>
+          <div class="option" onclick="showOnlyQuestion('question5')">
+            <label>Up to 100 devices</label>
+          </div>
+          <div class="option" onclick="showOnlyQuestion('question5')">
+            <label>Up to 150 devices</label>
+          </div>
+        </div>
+        <div class="prev-button" style="text-align:center; margin-top: 20px;">
+          <button onclick="prevQuestion('question4', 'question3')">← Previous</button>
+        </div>
+      </div>
+
+
+      <div class="question" id="question5" style="display:none;">
+        <h2>How many wired devices are in your space?</h2>
+        <p class="subtitle">Indicate the number of wired devices that will be connected within your space.
+        </p>
+        <div class="options">
+          <div class="option" onclick="showOnlyQuestion('question6')">
+            <label>5-10 devices
+            </label>
+          </div>
+          <div class="option" onclick="showOnlyQuestion('question6')">
+            <label>Up to 20 devices</label>
+          </div>
+        </div>
+        <div class="prev-button" style="text-align:center; margin-top: 20px;">
+          <button onclick="prevQuestion('question5', 'question4')">← Previous</button>
+        </div>
+      </div>
+
+      <div class="question" id="question6" style="display:none;">
+        <h2>How do you describe your WiFi usage?</h2>
+        <p class="subtitle">Can you describe how you typically use your WiFi, such as for browsing, streaming, gaming,
+          or running a business network?
+        </p>
+        <div class="options">
+          <div class="option" onclick="showResult()">
+            <label>Light usage</label>
+          </div>
+          <div class="option" onclick="showResult()">
+            <label>Moderate usage</label>
+          </div>
+          <div class="option" onclick="showResult()">
+            <label>High usage</label>
+          </div>
+        </div>
+        <div class="prev-button" style="text-align:center; margin-top: 20px;">
+          <button onclick="prevQuestion('question6', 'question5')">← Previous</button>
+        </div>
+      </div>
+
+      <div class="question hidden" id="result">
+        <h2>Your Recommended Solution</h2>
+        <p>Thanks for your answers. Based on your needs, we recommend our ExpertWiFi solution tailored to your scenario.
+        </p>
+        <p><a href="#">👉 View detailed package with heatmap analysis</a></p>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <script>
+    function showOnlyQuestion(id) {
+      const all = document.querySelectorAll('.question');
+      all.forEach(q => q.style.display = 'none');
+      const next = document.getElementById(id);
+      if (next) next.style.display = 'block';
+    }
+  </script>
+
+
+  <!-- Result Section -->
+  <div id="result" class="question" style="display: none; text-align: center; margin-top: 60px;">
+    <h2>Recommended Solution</h2>
+    <p>Based on your answers, we suggest the best WiFi solution tailored for your environment.</p>
+    <p style="font-weight: bold; font-size: 18px; color: #006ce1;">ExpertWiFi Model ABC-123</p>
+    <div style="text-align:center; margin-top: 20px;">
+      <button onclick="prevQuestion('result', 'question5')">← Previous</button>
+    </div>
+
+  </div>
+
+
+  <script>
+    function prevQuestion(currentId, prevId) {
+      document.getElementById(currentId).style.display = 'none';
+      document.getElementById(prevId).style.display = 'block';
+    }
+  </script>
+  <script>
+    function showResult() {
+      const all = document.querySelectorAll('.question');
+      all.forEach(q => q.style.display = 'none');
+      document.getElementById('result').style.display = 'block';
+    }
+  </script>
+
+  <script>
+    function prevQuestion(currentId, prevId) {
+      document.getElementById(currentId).style.display = 'none';
+      document.getElementById(prevId).style.display = 'block';
+    }
+  </script>
+
+</body>
+
+
+</html>
